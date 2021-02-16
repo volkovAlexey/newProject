@@ -60,6 +60,15 @@ public class ListImplTest {
     }
 
     @Test
+    public void testByArrayIndexOutOfBoundsException() {
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, () -> list.getByIndex(20));
+    }
+
+    @Test
     public void checkSubList() {
         list.add(1);
         list.add(2);
