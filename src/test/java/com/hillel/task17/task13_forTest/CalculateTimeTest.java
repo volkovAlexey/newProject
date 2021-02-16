@@ -1,8 +1,9 @@
 package com.hillel.task17.task13_forTest;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -10,7 +11,7 @@ import java.time.LocalTime;
 public class CalculateTimeTest {
     private CalculateTime calculateTime;
 
-    @Before
+    @BeforeEach
     public void init() {
         calculateTime = new CalculateTime();
     }
@@ -19,42 +20,42 @@ public class CalculateTimeTest {
     public void getPeriod_Time_Between_Dates() {
         LocalDateTime fromDate = LocalDateTime.now();
         LocalDateTime toDate = LocalDateTime.now().plusDays(1);
-        String periodExpected = calculateTime.getPeriod(fromDate, toDate);
-        String actual = "days: " + 1 + " hours: " + 24 + " minutes: " + 1440 + " seconds: " + 86400;
-        Assert.assertEquals(periodExpected, actual);
+        String actualExpected = calculateTime.getPeriod(fromDate, toDate);
+        String periodExpected = "days: " + 1 + " hours: " + 24 + " minutes: " + 1440 + " seconds: " + 86400;
+        Assertions.assertEquals(periodExpected, actualExpected);
     }
 
     @Test
     public void getTime_Calculate_Time() {
         LocalTime start = LocalTime.now();
         LocalTime finish = LocalTime.now().plusHours(3);
-        String expected = calculateTime.getTime(start, finish);
-        String actual = "minutes: " + 180 + " seconds: " + 10800;
-        Assert.assertEquals(expected, actual);
+        String actual = calculateTime.getTime(start, finish);
+        String expected = "minutes: " + 180 + " seconds: " + 10800;
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void getTime_Calculate_Second_Value_Less_Than_First() {
         LocalTime start = LocalTime.now();
         LocalTime finish = LocalTime.now().minusHours(3);
-        String expected = calculateTime.getTime(start, finish);
-        String actual = "minutes: " + -180 + " seconds: " + -10800;
-        Assert.assertEquals(expected, actual);
+        String actual = calculateTime.getTime(start, finish);
+        String expected = "minutes: " + -180 + " seconds: " + -10800;
+        Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void calculateMinutesInSeason_Valid_Name() {
         String season = "Winter";
-        Long expectedMinutes = calculateTime.calculateMinutesInSeason(season);
-        Long actual = 129599l;
-        Assert.assertEquals(expectedMinutes, actual);
+        Long actualMinutes = calculateTime.calculateMinutesInSeason(season);
+        Long expectedMinutes = 129599l;
+        Assertions.assertEquals(expectedMinutes, actualMinutes);
     }
 
     @Test
     public void calculateMinutesInSeason_Name_IgnoreCase() {
         String season = "SUMMER";
-        Long expectedMinutes = calculateTime.calculateMinutesInSeason(season);
-        Long actual = 132479L;
-        Assert.assertEquals(expectedMinutes, actual);
+        Long actualMinutes = calculateTime.calculateMinutesInSeason(season);
+        Long expectedMinutes = 132479L;
+        Assertions.assertEquals(expectedMinutes, actualMinutes);
     }
 }
