@@ -30,7 +30,7 @@ public class CalculateTimeTest {
         LocalTime start = LocalTime.now();
         LocalTime finish = LocalTime.now().plusHours(3);
         String actual = calculateTime.getTime(start, finish);
-        String expected = "minutes: " + 180 + " seconds: " + 10800;
+        String expected = "minutes: 180 seconds: 10800";
         Assertions.assertEquals(expected, actual);
     }
 
@@ -39,7 +39,7 @@ public class CalculateTimeTest {
         LocalTime start = LocalTime.now();
         LocalTime finish = LocalTime.now().minusHours(3);
         String actual = calculateTime.getTime(start, finish);
-        String expected = "minutes: " + -180 + " seconds: " + -10800;
+        String expected = "minutes: -180 seconds: -10800";
         Assertions.assertEquals(expected, actual);
     }
 
