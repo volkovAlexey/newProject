@@ -7,7 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ListImplTest {
-    private ListImpl list = null;
+    private ListImpl list;
 
     @BeforeEach
     public void init() {
@@ -46,20 +46,6 @@ public class ListImplTest {
     }
 
     @Test
-    public void checkWhenArrayOutOfBound() {
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.add(4);
-        try {
-            int expectedIndex = list.getByIndex(20);
-            Assertions.fail();
-        } catch (ArrayIndexOutOfBoundsException e) {
-            e.getMessage();
-        }
-    }
-
-    @Test
     public void testByArrayIndexOutOfBoundsException() {
         list.add(1);
         list.add(2);
@@ -74,11 +60,11 @@ public class ListImplTest {
         list.add(2);
         list.add(3);
         list.add(4);
-        IntList subList = list.subList(1, 3);
-        IntList actual = new ListImpl();
-        actual.add(2);
-        actual.add(3);
-        Assertions.assertEquals(subList, actual);
+        IntList actualSubList = list.subList(1, 3);
+        IntList expected = new ListImpl();
+        expected.add(2);
+        expected.add(3);
+        Assertions.assertEquals(expected, actualSubList);
     }
 
     @Test
