@@ -21,7 +21,7 @@ public class CalculateTimeTest {
         LocalDateTime fromDate = LocalDateTime.now();
         LocalDateTime toDate = LocalDateTime.now().plusDays(1);
         String actualExpected = calculateTime.getPeriod(fromDate, toDate);
-        String periodExpected = "days: " + 1 + " hours: " + 24 + " minutes: " + 1440 + " seconds: " + 86400;
+        String periodExpected = "days: 1 hours: 24 minutes: 1440 seconds: 86400";
         Assertions.assertEquals(periodExpected, actualExpected);
     }
 
