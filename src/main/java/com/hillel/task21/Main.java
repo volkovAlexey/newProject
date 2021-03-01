@@ -1,7 +1,10 @@
 package com.hillel.task21;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.BiFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -20,8 +23,7 @@ public class Main {
                 list.add(i * i);
             }
             return true;
-        })
-                .collect(Collectors.toList());
+        }).collect(Collectors.toList());
         System.out.println(list);
 
         List<String> strings = new ArrayList<>();
@@ -29,11 +31,19 @@ public class Main {
         strings.add("aaa");
         strings.add("Aaadddd");
         strings.add("add");
-        CountString countString = new CountStringImpl();
+        CountString countString = new CountString();
 
         Predicate<List<String>> predicate = s -> countString.isMoreTwoString(strings);
         System.out.println(predicate.test(strings));
 
+        long count = strings.stream().filter(s -> Character.isUpperCase(s.charAt(0))).count();
+        System.out.println(countString.isMoreTwoStringByStream(count));
+
+        Map<Enum, BiFunction<Double, Double, Double>> biFunctionMap = new HashMap<>();
+        biFunctionMap.put(MathOperations.PLUS, Double::sum);
+        biFunctionMap.put(MathOperations.MINUS, ((a, b) -> a - b));
+        biFunctionMap.put(MathOperations.DIVIDE, ((a, b) -> a / b));
+        biFunctionMap.put(MathOperations.MULTIPLY, ((a, b) -> a * b));
 
     }
 }
