@@ -30,16 +30,18 @@ public class Main {
         strings.add("Sds");
         strings.add("aaa");
         strings.add("Aaadddd");
-        strings.add("add");
-        CountString countString = new CountString();
+        strings.add("Aadd");
+        CountString countString = new CountStringImpl();
 
         Predicate<List<String>> predicate = s -> countString.isMoreTwoString(strings);
         System.out.println(predicate.test(strings));
 
-        long count = strings.stream().filter(s -> Character.isUpperCase(s.charAt(0))).count();
-        System.out.println(countString.isMoreTwoStringByStream(count));
+        long count = strings.stream()
+                .filter(s -> Character.isUpperCase(s.charAt(0)))
+                .count();
+        System.out.println(count > 2);
 
-        Map<Enum, BiFunction<Double, Double, Double>> biFunctionMap = new HashMap<>();
+        Map<MathOperations, BiFunction<Double, Double, Double>> biFunctionMap = new HashMap<>();
         biFunctionMap.put(MathOperations.PLUS, Double::sum);
         biFunctionMap.put(MathOperations.MINUS, ((a, b) -> a - b));
         biFunctionMap.put(MathOperations.DIVIDE, ((a, b) -> a / b));
