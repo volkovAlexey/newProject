@@ -1,5 +1,6 @@
 *.xml
 !pom.xml
+!web.xml
 *.iml
 *.idea
 # Compiled class file
