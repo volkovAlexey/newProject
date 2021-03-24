@@ -11,4 +11,6 @@ public interface CitiesService {
     List<City> getCitiesByChar(char ch) throws SQLException;
 
     void addCity(City city) throws SQLException;
+
+    City getRandomCity();
 }

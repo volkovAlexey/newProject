@@ -3,6 +3,7 @@ package com.hillel.task29.services;
 import com.hillel.task29.models.City;
 import com.hillel.task29.services.CitiesService;
 import com.hillel.task29.utils.Util;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CitiesServiceImpl implements CitiesService {
+
     @Override
     public List<City> getCities() {
         List<City> cities = new ArrayList<>();
@@ -46,14 +48,33 @@ public class CitiesServiceImpl implements CitiesService {
     }
 
     @Override
+    public City getRandomCity() {
+        City city = null;
+        ResultSet resultSet;
+        try (Connection connection = Util.getConnection();
+             Statement statement = connection.createStatement();
+        ) {
+            resultSet = statement.executeQuery("SELECT * FROM cities ORDER BY random() LIMIT 1");
+            while (resultSet.next()) {
+                String id = resultSet.getString("id");
+                String name = resultSet.getString("name");
+                city = new City(id, name);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return city;
+    }
+
+    @Override
     public List<City> getCitiesByChar(char ch) throws SQLException {
-        String regex = "'" + ch + "[A-z]'";
+        String regex = ch + "%'";
         List<City> cities = new ArrayList<>();
         ResultSet resultSet;
         try (Connection connection = Util.getConnection();
              Statement statement = connection.createStatement();
         ) {
-            resultSet = statement.executeQuery("SELECT * FROM cities WHERE name LIKE " + regex);
+            resultSet = statement.executeQuery("SELECT * FROM cities WHERE name LIKE '" + regex);
             while (resultSet.next()) {
                 String id = resultSet.getString("id");
                 String name = resultSet.getString("name");

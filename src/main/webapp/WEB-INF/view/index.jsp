@@ -8,6 +8,7 @@
        <button type="submit">Enter</button>
        </form>
 
-       ${cityName}
+       ${cities}
+       ${randomCity}
   </body>
 </html>
