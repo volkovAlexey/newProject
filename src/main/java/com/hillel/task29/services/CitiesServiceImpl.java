@@ -2,6 +2,7 @@ package com.hillel.task29.services;
 
 import com.hillel.task29.models.City;
 import com.hillel.task29.services.CitiesService;
+import com.hillel.task29.utils.Util;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
