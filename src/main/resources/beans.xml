@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="deck" class="com.hillel.task27.Deck">
+        <constructor-arg ref="cards"/>
+    </bean>
+
+    <!--baens of Ten-->
+    <bean id="tenHearts" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">TEN</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">HEARTS</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="tenSpades" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">TEN</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">SPADES</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="tenClubs" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">TEN</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">CLUBS</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="tenDiamonds" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">TEN</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">DIAMONDS</value>
+        </constructor-arg>
+        <constructor-arg value="true"/>
+    </bean>
+
+    <!--    bean of Jacks-->
+    <bean id="jackHearts" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">JACK</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">HEARTS</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="jackSpades" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">JACK</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">SPADES</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="jackClubs" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">JACK</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">CLUBS</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="jackDiamonds" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">JACK</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">DIAMONDS</value>
+        </constructor-arg>
+        <constructor-arg value="true"/>
+    </bean>
+
+    <!--    bean of Aces-->
+    <bean id="aceHearts" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">ACE</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">HEARTS</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="aceSpades" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">ACE</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">SPADES</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="aceClubs" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">ACE</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">CLUBS</value>
+        </constructor-arg>
+        <constructor-arg value="false"/>
+    </bean>
+    <bean id="aceDiamonds" class="com.hillel.task27.Card">
+        <constructor-arg>
+            <value type="com.hillel.task27.Value">ACE</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value type="com.hillel.task27.Suit">DIAMONDS</value>
+        </constructor-arg>
+        <constructor-arg value="true"/>
+    </bean>
+
+    <util:list id="cards">
+        <ref bean="tenHearts"/>
+        <ref bean="tenSpades"/>
+        <ref bean="tenClubs"/>
+        <ref bean="tenDiamonds"/>
+
+        <ref bean="jackHearts"/>
+        <ref bean="jackSpades"/>
+        <ref bean="jackClubs"/>
+        <ref bean="jackDiamonds"/>
+
+        <ref bean="aceHearts"/>
+        <ref bean="aceSpades"/>
+        <ref bean="aceClubs"/>
+        <ref bean="aceDiamonds"/>
+    </util:list>
+</beans>
