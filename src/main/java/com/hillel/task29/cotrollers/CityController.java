@@ -2,14 +2,10 @@ package com.hillel.task29.cotrollers;
 
 import com.hillel.task29.models.City;
 import com.hillel.task29.services.CitiesService;
-import com.hillel.task29.services.CitiesServiceImpl;
-import com.hillel.task29.utils.Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.SQLException;

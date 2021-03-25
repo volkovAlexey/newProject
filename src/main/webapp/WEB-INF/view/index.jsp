@@ -4,7 +4,7 @@
 <html>
   <body>
        <form action="city" method="GET">
-       <input type="text" name="cityName">
+       <input type="text" name="cityName" placeHolder="Enter city" required>
        <button type="submit">Enter</button>
        </form>
 
